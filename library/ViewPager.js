@@ -1,9 +1,6 @@
-import React, { PropTypes, Component } from 'react';
-import {
-  View,
-  ListView,
-  Platform
-} from 'react-native';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { View, ListView, Platform, ViewPropTypes } from 'react-native';
 
 import Scroller from 'react-native-scroller';
 import {createResponder} from 'react-native-gesture-responder';
@@ -15,7 +12,7 @@ const MIN_FLING_VELOCITY = 0.5;
 export default class ViewPager extends Component {
 
   static propTypes = {
-    ...View.propTypes,
+    ...ViewPropTypes,
     initialPage: PropTypes.number,
     pageMargin: PropTypes.number,
     scrollEnabled: PropTypes.bool,
