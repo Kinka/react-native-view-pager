@@ -177,12 +177,8 @@ export default class ViewPager extends Component {
   componentDidUpdate() {
     if (!this.initialPageSettled) {
       this.initialPageSettled = true;
-      if (Platform.OS === 'ios') {
-        this.scrollToPage(this.props.initialPage, true);
-      } else {
-        //A trick to solve bugs on Android. Delay a little
-        setTimeout(this.scrollToPage.bind(this, this.props.initialPage, true), 0);
-      }
+      //A trick to solve bugs on Android/iOS. Delay a little
+      setTimeout(this.scrollToPage.bind(this, this.props.initialPage, true), 0);
     } else if (this.layoutChanged) {
       this.layoutChanged = false;
       if (typeof this.currentPage === 'number') {
